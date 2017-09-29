@@ -1,7 +1,7 @@
 # Pet-Clinic
 Web pet clinic on Java
 
-### Project is intended to store clilents and their pets
+### Project is intended to store clients and their pets
 ![screenshot_1](https://user-images.githubusercontent.com/25298585/30784324-ef7cfd6e-a15b-11e7-8f00-7e1613468065.png)
 
 Appliсation allows: 
