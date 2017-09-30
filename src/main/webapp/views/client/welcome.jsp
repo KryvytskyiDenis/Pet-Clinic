@@ -10,10 +10,16 @@
 <div class="main">
 <%@include file="header.jsp" %>
 <div class="welcome-text">
-    <h1>Pet Clinic</h1>
-    <p>
-        We will help your pet!
-    </p>
+    <div class="main-title">
+        <div>
+
+        </div>
+        <h1>Pet Clinic</h1>
+    </div>
+
+    <%--<p>--%>
+        <%--We will help your pet!--%>
+    <%--</p>--%>
 </div>
 <%@include file="footer.jsp" %>
 </div>

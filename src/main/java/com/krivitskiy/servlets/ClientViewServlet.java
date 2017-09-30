@@ -1,6 +1,6 @@
 package com.krivitskiy.servlets;
 
-import com.krivitskiy.store.JDBCStorage;
+import com.krivitskiy.store.HibernateStorage;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +11,9 @@ import java.io.IOException;
 
 public class ClientViewServlet extends HttpServlet {
 
-    private final JDBCStorage storage = new JDBCStorage();
+//    private final JDBCStorage storage = new JDBCStorage();
+
+    private final HibernateStorage storage = new HibernateStorage();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

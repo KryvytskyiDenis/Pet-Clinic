@@ -36,6 +36,12 @@ public class Client {
     private Pet petOfClient;
 
     /**
+     * Empty constructor
+     */
+    public Client() {
+    }
+
+    /**
      * Constructor with all fields of the object
      *
      * @param id              is id of client
@@ -101,6 +107,13 @@ public class Client {
     }
 
     /**
+     *
+     * @param id is id of client in db
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+    /**
      * @return id of client
      */
     public int getId() {
@@ -116,6 +129,14 @@ public class Client {
         return this.petOfClient;
     }
 
+
+    /**
+     *
+     * @param nameOfClient is name of client
+     */
+    public void setNameOfClient(String nameOfClient) {
+        this.nameOfClient = nameOfClient;
+    }
     /**
      * @return name of client
      */

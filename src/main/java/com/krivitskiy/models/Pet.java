@@ -5,17 +5,22 @@ package com.krivitskiy.models;
  */
 public class Pet {
     /**
+     * id of pet
+     */
+    private int id;
+
+    /**
      * Name of pet
      */
-    final private String nameOfPet;
+    private String nameOfPet;
     /**
      * Pet owner's id
      */
-    final private int clientId;
+    private int clientId;
     /**
      * Type of pet
      */
-    final private String typeOfPet;
+    private String typeOfPet;
 
     /**
      * Constructor of class with two params
@@ -52,6 +57,45 @@ public class Pet {
         return typeOfPet;
     }
 
+    /**
+     *
+     * @return id of pet
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id of pet
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     *
+     * @param nameOfPet for pet
+     */
+    public void setNameOfPet(String nameOfPet) {
+        this.nameOfPet = nameOfPet;
+    }
+
+    /**
+     *
+     * @param clientId is an id of client
+     */
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+    /**
+     *
+     * @param typeOfPet is type of pet
+     */
+    public void setTypeOfPet(String typeOfPet) {
+        this.typeOfPet = typeOfPet;
+    }
 
     /**
      * Determines whether two object references are identical

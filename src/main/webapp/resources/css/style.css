@@ -27,19 +27,26 @@ body {
     height: 700px;
     text-align: center;
     background-size: cover;
-
 }
 
+.main-title{
+    height: 140px;
+    margin: 10% auto auto auto;
+    padding-top: 10px;
+    width: 600px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+}
 .welcome-text h1, .welcome-text p{
     display: block;
     font-family: 'Pacifico', cursive, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 }
 
 .welcome-text h1{
-    padding-top: 5%;
+    /*padding-top: 5%;*/
     font-size: 120px;
     line-height: 120px;
-    color: #ffb725;
+    color: #ff4f4c;
 }
 
 .welcome-text p{
