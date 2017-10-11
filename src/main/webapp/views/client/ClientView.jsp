@@ -32,8 +32,16 @@
                     <td>${client.getPhoneOfClient()}</td>
                     <td>${client.getCityOfClient()}</td>
                     <td>${client.getAddressOfClient()}</td>
-                    <td> ${client.petOfClient.nameOfPet}</td>
-                    <td> ${client.petOfClient.getTypeOfPet()}</td>
+                    <td>
+                        <c:forEach items="${client.getPetsOfClient()}" var="pet" varStatus="status">
+                            ${pet.getNameOfPet()}
+                        </c:forEach>
+                    </td>
+                    <td>
+                        <c:forEach items="${client.getPetsOfClient()}" var="pet" varStatus="status">
+                            ${pet.getTypeOfPet()}
+                        </c:forEach>
+                    </td>
                     <td>
                         <a href="${pageContext.servletContext.contextPath}/client/edit?id=${client.id}">Edit</a>
                         <a href="${pageContext.servletContext.contextPath}/client/delete?id=${client.id}">Delete</a>

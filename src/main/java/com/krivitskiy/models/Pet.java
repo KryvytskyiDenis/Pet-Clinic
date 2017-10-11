@@ -1,35 +1,65 @@
 package com.krivitskiy.models;
 
+import javax.persistence.*;
+
 /**
  * Pet class
  */
+@Entity
+@Table(name = "pet")
 public class Pet {
     /**
      * id of pet
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid")
     private int id;
 
     /**
      * Name of pet
      */
+    @Column(name = "pname")
     private String nameOfPet;
+
     /**
-     * Pet owner's id
+     * Master of pet
      */
-    private int clientId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client masterOfPet;
+
     /**
      * Type of pet
      */
+    @Column(name = "ptype")
     private String typeOfPet;
+
+    /**
+     * Empty constructor
+     */
+    public Pet() {
+    }
 
     /**
      * Constructor of class with two params
      *
      * @param nameOfPet is a name of the pet
      */
-    public Pet(String nameOfPet, int clientId, String typeOfPet) {
+    public Pet(String nameOfPet, String typeOfPet) {
         this.nameOfPet = nameOfPet;
-        this.clientId = clientId;
+        this.typeOfPet = typeOfPet;
+    }
+
+    /**
+     * Constructor with all params
+     * @param nameOfPet is a name of the pet
+     * @param masterOfPet is a master of the pet
+     * @param typeOfPet is a type of the pet
+     */
+    public Pet(String nameOfPet, Client masterOfPet, String typeOfPet) {
+        this.nameOfPet = nameOfPet;
+        this.masterOfPet = masterOfPet;
         this.typeOfPet = typeOfPet;
     }
 
@@ -39,14 +69,6 @@ public class Pet {
      */
     public String getNameOfPet() {
         return nameOfPet;
-    }
-
-    /**
-     * Get pet owner's id
-     * @return clientId
-     */
-    public int getClientId() {
-        return clientId;
     }
 
     /**
@@ -83,19 +105,29 @@ public class Pet {
 
     /**
      *
-     * @param clientId is an id of client
-     */
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
-
-    /**
-     *
      * @param typeOfPet is type of pet
      */
     public void setTypeOfPet(String typeOfPet) {
         this.typeOfPet = typeOfPet;
     }
+
+    /**
+     *
+     * @return Client object
+     */
+    public Client getMasterOfPet() {
+        return masterOfPet;
+    }
+
+    /**
+     *
+     * @param masterOfPet is Client object
+     */
+    public void setMasterOfPet(Client masterOfPet) {
+        this.masterOfPet = masterOfPet;
+    }
+
+
 
     /**
      * Determines whether two object references are identical
@@ -107,11 +139,11 @@ public class Pet {
         if (this == otherObject) return true;
         if (otherObject == null || getClass() != otherObject.getClass()) return false;
 
-        Pet that = (Pet) otherObject;
-        
-        return (clientId != that.clientId)
-                && (nameOfPet != null ? !nameOfPet.equals(that.nameOfPet) : that.nameOfPet != null)
-                && typeOfPet != null ? typeOfPet.equals(that.typeOfPet) : that.typeOfPet == null;
+        Pet pet = (Pet) otherObject;
+
+        if (id != pet.id) return false;
+        if (nameOfPet != null ? !nameOfPet.equals(pet.nameOfPet) : pet.nameOfPet != null) return false;
+        return typeOfPet != null ? typeOfPet.equals(pet.typeOfPet) : pet.typeOfPet == null;
     }
 
     /**
@@ -120,8 +152,9 @@ public class Pet {
      */
     @Override
     public int hashCode() {
-        int result = nameOfPet != null ? nameOfPet.hashCode() : 0;
-        result = 31 * result + clientId;
+        int result = id;
+        result = 31 * result + (nameOfPet != null ? nameOfPet.hashCode() : 0);
+        result = 31 * result + (masterOfPet != null ? masterOfPet.hashCode() : 0);
         result = 31 * result + (typeOfPet != null ? typeOfPet.hashCode() : 0);
         return result;
     }

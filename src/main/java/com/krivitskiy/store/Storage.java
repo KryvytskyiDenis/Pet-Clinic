@@ -1,9 +1,10 @@
 package com.krivitskiy.store;
 
-import com.krivitskiy.models.Pet;
 import com.krivitskiy.models.Client;
+import com.krivitskiy.models.Pet;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Storage interface
@@ -57,9 +58,9 @@ public interface Storage {
     /**
      * Delete pet by id
      *
-     * @param clientId is id of pet that need to delete
+     * @param petId is id of pet that need to delete
      */
-    void deletePetsByClientId(final int clientId);
+    void deletePetByPetId(final int petId);
 
     /**
      * get client by id
@@ -73,12 +74,7 @@ public interface Storage {
      * find client with pets
      *
      * @param clientName is the name of client that need to find
-     * @param petName    is the pet's name of the client
      * @return found clients
      */
-    Collection<Client> findByName(final String clientName, final String petName);
-
-    /**
-     * close connection with database
-     */
+    List<Client> findByName(final String clientName);
 }

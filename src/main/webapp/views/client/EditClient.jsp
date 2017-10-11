@@ -23,10 +23,17 @@
                     <label for="nameOfClient">Name: *</label>
                     <input name="nameOfClient" id="nameOfClient" placeholder="${client.getNameOfClient()}">
                 </li>
-
                 <li>
-                    <label for="nameOfPet">Pet name: *</label>
-                    <input name="nameOfPet" id="nameOfPet" placeholder="${client.petOfClient.nameOfPet}">
+                    <label for="phoneOfClient">Phone: *</label>
+                    <input name="phoneOfClient" id="phoneOfClient" placeholder="${client.getPhoneOfClient()}">
+                </li>
+                <li>
+                    <label for="cityOfClient">City: *</label>
+                    <input name="cityOfClient" id="cityOfClient" placeholder="${client.getCityOfClient()}">
+                </li>
+                <li>
+                    <label for="addressOfClient">Address: *</label>
+                    <input name="addressOfClient" id="addressOfClient" placeholder="${client.getAddressOfClient()}">
                 </li>
                 <li>
                     <button class="submit">Submit</button>

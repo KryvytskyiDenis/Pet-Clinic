@@ -1,7 +1,7 @@
 package com.krivitskiy.servlets;
 
 import com.krivitskiy.models.*;
-import com.krivitskiy.store.JDBCStorage;
+import com.krivitskiy.store.HibernateStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,26 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class ClientCreateServlet extends HttpServlet {
-    private final JDBCStorage storage = new JDBCStorage();
+    private final HibernateStorage storage = new HibernateStorage();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, NullPointerException {
-        Pet pet = null;
+        Client client;
 
-        String name = req.getParameter("nameOfClient");
+        String nameOfClient = req.getParameter("nameOfClient");
         String phone = req.getParameter("phoneOfClient");
         String city = req.getParameter("cityOfClient");
         String address = req.getParameter("addressOfClient");
         String petType = req.getParameter("ClassOfPet");
+        String nameOfPet = req.getParameter("nameOfPet");
 
-        try {
-            pet = new Pet(req.getParameter("nameOfPet"),
-                    storage.addClient(new Client(name, phone, city, address)), petType);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        client = new Client(nameOfClient, phone, city, address);
 
-        storage.addPet(pet);
+        storage.addPet(new Pet(nameOfPet, client, petType));
 
         resp.sendRedirect(String.format("%s%s", req.getContextPath(), "/client/view"));
     }

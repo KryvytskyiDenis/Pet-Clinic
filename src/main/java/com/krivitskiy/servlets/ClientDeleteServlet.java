@@ -1,6 +1,6 @@
 package com.krivitskiy.servlets;
 
-import com.krivitskiy.store.JDBCStorage;
+import com.krivitskiy.store.HibernateStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class ClientDeleteServlet extends HttpServlet {
-    private final JDBCStorage storage = new JDBCStorage();
+    private final HibernateStorage storage = new HibernateStorage();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

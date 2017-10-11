@@ -119,6 +119,7 @@ nav li:hover > ul.submenu {
     margin: 20px auto auto auto;
     padding: 10px 0;
     width: 100%;
+    height: auto;
 }
 
 table {
@@ -185,12 +186,12 @@ form h2, form label {
 
 .find-client{
     width: 400px;
-    height: 200px;
+    height: 155px;
 }
 
 .edit-client {
     width: 400px;
-    height: 210px;
+    height: 310px;
 }
 
 .add-client{
